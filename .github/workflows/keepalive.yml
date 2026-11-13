@@ -1,0 +1,15 @@
+name: Supabase keepalive
+on:
+  schedule:
+    - cron: "17 6 */2 * *"
+  workflow_dispatch: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping
+        run: |
+          URL="https://gctqkakcdsynaqzbnkkz.supabase.co"
+          KEY="sb_publishable_nwJIS8dA2t61NK4AW8LOdQ_fiQYN0Aq"
+          curl -sS "$URL/rest/v1/profiles?select=id&limit=1" -H "apikey: $KEY" -H "Authorization: Bearer $KEY" -o /dev/null -w "база: %{http_code}\n" || true
+          curl -sS "$URL/functions/v1/tripworth?action=rates" -H "apikey: $KEY" -o /dev/null -w "функция: %{http_code}\n" || true
