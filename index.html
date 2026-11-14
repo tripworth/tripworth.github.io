@@ -484,7 +484,7 @@ body.no-scroll { overflow: hidden; }
           <small>с запасом на багаж · на одного туда-обратно</small>
           <small class="flight-base">${b(d.price)} без добавленной доплаты за багаж</small>
           <small>+ ≈ ${b(M)} — запас, не тариф продавца</small>
-          <small>${l.baggageOn?"В бюджет идёт сумма с запасом":"В бюджет идёт исходная цена"}${i>1?` · ≈ ${b(h*i)} на ${i}`:""}</small>
+          <small>${l.flightPick===m?l.baggageOn?"В бюджете с запасом":"В бюджете без доплаты":"Стоимость этого варианта"}${i>1?` · ≈ ${b(h*i)} на ${i}`:""}</small>
           <span class="offer__a">
             <button type="button" class="btn btn--sm${l.flightPick===m?" btn--on":" btn--line"}" data-offer="${m}">${l.flightPick===m?"✓ В бюджете":"В бюджет"}</button>
             <a class="btn btn--sm" href="${p(j4(d,a))}" target="_blank" rel="noopener">Купить ↗</a>
